@@ -6,6 +6,7 @@
   <title></title>
   </head>
   <body>
+  
   <script>
   function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
@@ -18,13 +19,21 @@
     }
     return array;
   }
+  
   function mate(gen1, gen2) {
     possibilities = [gen1[0]+gen2[0], gen1[0]+gen2[1], gen1[1]+gen2[0], gen1[1]+gen2[1]];
     possibilities = shuffle(possibilities);
-    return [possibilities[0],possibilities[1]];
+    litter = [possibilities[0],possibilities[1]];
+    if (litter[0][1] == "S"){
+      litter[0] = [litter[0][1]+litter[0][0]];
+    }
+    if (litter[1][1] == "S"){
+      litter[1] = [litter[1][1]+litter[1][0]];
+    } return litter
   }
+  
   for (var i = 0; i < 5; i++) {
-    document.write(mate("Ss", "Ss")+"<br>")
+    document.write(mate("ss", "ss")+"<br>")
   }
   </script>
   
