@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="PSPad editor, www.pspad.com">
+  <title></title>
+  </head>
+  <body>
+  <script>
+  function shuffle(array) {
+    var currentIndex = array.length, temporaryValue, randomIndex;
+    while (0 !== currentIndex) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+    }
+    return array;
+  }
+  function mate(gen1, gen2) {
+    possibilities = [gen1[0]+gen2[0], gen1[0]+gen2[1], gen1[1]+gen2[0], gen1[1]+gen2[1]];
+    possibilities = shuffle(possibilities);
+    return [possibilities[0],possibilities[1]];
+  }
+  for (var i = 0; i < 5; i++) {
+    document.write(mate("Ss", "Ss")+"<br>")
+  }
+  </script>
+  
+  </body>
+</html>
